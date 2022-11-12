@@ -6,7 +6,7 @@
 * 
 * Name: Andrew Sequeira Student ID: 055099063 Date: November 12, 2022
 *
-* Online (Cyclic) Link: ________________________________________________________
+* Online (Cyclic) Link: https://byzantium-turkey-cap.cyclic.app
 *
 ********************************************************************************/ 
 var express = require("express");
@@ -173,7 +173,7 @@ app.get("/images",(req,res)=>{
         imageList.images = items;
         console.log(imageList);
         // res.json(imageList);
-        res.render("images",imageList)
+        res.render("images",imageList ,{style:'site.css'});
     });
 });
 
