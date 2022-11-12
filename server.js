@@ -132,7 +132,7 @@ app.get("/departments",(req,res)=>{
         if (data.length > 0) res.render("departments",{departments: data, style:'site.css'})
         else res.render("departments",{message:"no results"});
     }).catch((err)=>{
-        res.render({message:"no results"})
+        res.render("departments",{message:"no results"})
     });
 });
 
@@ -145,7 +145,7 @@ app.post("/departments/add",(req,res)=>{
     data_service.addDepartment(formData).then(()=>{
         res.redirect("/departments");
     }).catch((err)=>{
-        res.status(500).render("error",{errorCode: "500", message:"Unable to Add Department"});
+        res.status(500).render("error",{layout: false,errorCode: "500", message:"Unable to Add Department"});
     });
 })
 
@@ -182,7 +182,7 @@ app.post("/employees/add",(req,res)=>{
     data_service.addEmployee(formData).then(()=>{
         res.redirect("/employees");
     }).catch((err)=>{
-        res.status(500).render("error",{errorCode: "500", message:"Unable to Add Employee"});
+        res.status(500).render("error",{layout: false,errorCode: "500", message:"Unable to Add Employee"});
     });
        
     
@@ -214,7 +214,7 @@ app.get("/employee/:empNum", (req, res) => {
         viewData.departments = []; // set departments to empty if there was an error
     }).then(() => {
         if (viewData.employee == null) { // if no employee - return an error
-            res.status(404).render("error",{errorCode: "404", message:"Employee Not Found"});
+            res.status(404).render("error",{layout: false,errorCode: "404", message:"Employee Not Found"});
         } else {
             res.render("employee", { viewData: viewData, style:'add.css' }); // render the "employee" view
         }
@@ -228,10 +228,10 @@ app.get("/department/*",(req,res)=>{
         if (data) //if not undefined
             res.render("department",{department: data, style:'add.css'});
         else
-            res.status(404).render("error",{errorCode: "404", message:"Department Not Found"});
+            res.status(404).render("error",{layout: false,errorCode: "404", message:"Department Not Found"});
     }).catch((err)=>{
         console.log("catch");
-        res.status(404).render("error",{errorCode: "404", message:"Department Not Found"});;
+        res.status(404).render("error",{layout: false,errorCode: "404", message:"Department Not Found"});;
     });
 });
 
@@ -240,7 +240,7 @@ app.post("/employee/update", (req, res) => {
     data_service.updateEmployee(req.body).then(()=>{
         res.redirect("/employees");
     }).catch((err)=>{
-        res.status(500).render("error",{errorCode: "500", message:"Unable to Update Employee"});
+        res.status(500).render("error",{layout: false,errorCode: "500", message:"Unable to Update Employee"});
     });
 
 });
@@ -250,7 +250,7 @@ app.post("/department/update",(req,res)=>{
     data_service.updateDepartment(req.body).then(()=>{
         res.redirect("/departments");
     }).catch((err)=>{
-        res.status(500).render("error",{errorCode: "500", message:"Unable to Update Department"});
+        res.status(500).render("error",{layout: false,errorCode: "500", message:"Unable to Update Department"});
     });
        
 });
@@ -259,13 +259,13 @@ app.get("/employees/delete/*",(req,res)=>{
     data_service.deleteEmployeeByNum(req.params[0]).then(()=>{
         res.redirect("/employees");
     }).catch((err)=>{
-        res.status(500).render("error",{errorCode: "500", message:"Unable to Remove Employee / Employee not found"});
+        res.status(500).render("error",{layout: false,errorCode: "500", message:"Unable to Remove Employee / Employee not found"});
     });
 });
 
 //get any other route that is not found
 app.get("*",(req,res)=>{
-    res.status(404).render("error",{errorCode: "404", message:"Page Not Found"});
+    res.status(404).render("error",{ layout: false, errorCode: "404", message:"Page Not Found"});
 });
 
 
