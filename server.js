@@ -173,7 +173,7 @@ app.get("/images",(req,res)=>{
         imageList.images = items;
         console.log(imageList);
         // res.json(imageList);
-        res.render("images",imageList ,{style:'site.css'});
+        res.render("images",{imageList : imageList, style:'add.css'});
     });
 });
 
