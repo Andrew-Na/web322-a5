@@ -2,6 +2,7 @@
     <div class="col-md-12">
         <h2>Departments<a href="/departments/add" class="btn btn-success pull-right">Add New 
 Department</a>
+{{#if departments}}
 </h2>
         <hr>
         <div class="table-responsive">
@@ -20,3 +21,8 @@ Department</a>
         </div>
     </div>
 </div>
+{{else}}
+    <div class="col-md-12 text-center">
+        <strong>{{message}}</strong>
+    </div>
+{{/if}}

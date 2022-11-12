@@ -100,7 +100,7 @@ app.get("/employees",(req,res)=>{
     {
         data_service.getEmployeesByDepartment(req.query.department).then((data)=>{
             if (data.length > 0) res.render("employees", {employees: data, style:'site.css'})
-            else res.render("employees",{message:"no results"});
+            else res.render("employees",{message:"no results",style:'site.css'});
         }).catch((err)=>{
             res.render("employees",{message:"no results",style:'site.css'});
         });
@@ -109,7 +109,7 @@ app.get("/employees",(req,res)=>{
     {
         data_service.getEmployeesByManager(req.query.manager).then((data)=>{
             if (data.length > 0) res.render("employees",{employees: data, style:'site.css'});
-            else res.render("employees",{message:"no results"});
+            else res.render("employees",{message:"no results",style:'site.css'});
         }).catch((err)=>{
             res.render("employees",{message:"no results",style:'site.css'});
         });
@@ -130,9 +130,9 @@ app.get("/employees",(req,res)=>{
 app.get("/departments",(req,res)=>{
     data_service.getDepartments().then((data)=>{
         if (data.length > 0) res.render("departments",{departments: data, style:'site.css'})
-        else res.render("departments",{message:"no results", style:'site.css'});
+        else res.render("departments",{message:"no results"});
     }).catch((err)=>{
-        res.render({message:"no results",style:'site.css'})
+        res.render({message:"no results"})
     });
 });
 
@@ -216,7 +216,7 @@ app.get("/employee/:empNum", (req, res) => {
         if (viewData.employee == null) { // if no employee - return an error
             res.status(404).render("error",{errorCode: "404", message:"Employee Not Found"});
         } else {
-            res.render("employee", { viewData: viewData }); // render the "employee" view
+            res.render("employee", { viewData: viewData, style:'add.css' }); // render the "employee" view
         }
         });
    });
@@ -226,7 +226,7 @@ app.get("/department/*",(req,res)=>{
     data_service.getDepartmentById(req.params[0]).then((data)=>{
        // console.log(data);
         if (data) //if not undefined
-            res.render("department",{department: data});
+            res.render("department",{department: data, style:'add.css'});
         else
             res.status(404).render("error",{errorCode: "404", message:"Department Not Found"});
     }).catch((err)=>{
