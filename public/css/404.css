@@ -1,0 +1,40 @@
+body {
+    background-color: #103c43;
+}
+img {
+    height: auto;
+    width: 400px;
+}
+
+button {
+    padding: 10px;
+    font-size: x-large;
+    background: #20727e;
+    border-radius: 5px;
+    border-color: #469fad;
+    border-width: 5px;
+}
+h1 {
+    text-align: center;
+    color: #48949f;
+    font-size: 50px;
+}
+.container { 
+    height: 100px;
+    position: relative;
+  }
+  
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .center-left {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-45%, 0%);
+  }

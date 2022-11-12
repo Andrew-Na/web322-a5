@@ -1,0 +1,36 @@
+body {
+    background-color: #103c43;
+}
+.col-md-9{
+    box-shadow: 2px 2px  #d5d2d2;
+    background-color: white;
+    border-radius: 15px;
+    display:table-cell;
+}
+
+li {
+    box-shadow: 1px 1px  1px  #d5d2d2;
+}
+
+.nav
+{
+    border: 1px solid #d5d2d2;
+}
+
+/*for the about section*/
+.col-md-12 {
+    background-color: white;
+    box-shadow: 2px 2px  #d5d2d2;
+    border-radius: 15px;
+}
+
+/* for coming soon section */
+.col-md-3 {
+    color: #c1e8eb;
+    background-color: #362e2e;
+    border-radius: 15px;
+}
+.row {
+    display:flex;
+    width: 100%;
+}

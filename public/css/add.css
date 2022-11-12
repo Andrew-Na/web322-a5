@@ -1,0 +1,15 @@
+body {
+    background-color: #103c43;
+}
+
+div {
+    background-color: white;
+    border-radius: 15px;
+}
+.nav
+{
+    border: 1px solid #d5d2d2;
+}
+li {
+    box-shadow: 1px 1px  1px  #d5d2d2;
+}

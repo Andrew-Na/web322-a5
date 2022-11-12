@@ -1,0 +1,31 @@
+{{#if department}}
+<div class="row">
+    <div class="col-md-12">
+        <h2>{{department.departmentName}} - Department: {{department.departmentId}}</h2>
+        <hr />
+        <form method="post" action="/department/update">
+        <fieldset>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="departmentName">Department:</label>
+                        <input class="form-control" id="departmentName" name="departmentName" type="text" value="{{department.departmentName}}" />
+                    </div> 
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <input type="hidden" name="departmentId" value="{{department.departmentId}}"/>
+                </div>
+            </div>
+        </fieldset>
+        <hr />
+        <input type="submit" class="btn btn-primary pull-right" value="Update Department" /><br /><br /><br />
+        </form>
+    </div>
+</div>
+{{else}}
+<div class="col-md-12 text-center">
+ <strong>{{message}}</strong>
+</div>
+{{/if}}
